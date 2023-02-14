@@ -1,10 +1,10 @@
-import RemoveButton from "../Components/RemoveButton";
+import ToDoList from "../Components/ToDoList/ToDoList";
 
 const Layout = (): JSX.Element => {
   return (
     <>
       <div>
-        <RemoveButton />
+        <ToDoList />
       </div>
     </>
   );
