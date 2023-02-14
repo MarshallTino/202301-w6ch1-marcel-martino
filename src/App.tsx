@@ -1,8 +1,8 @@
-import React from "react";
 import "./App.css";
+import Layout from "./Layout/Layout";
 
-function App() {
-  return <div className="App"></div>;
+function App(): JSX.Element {
+  return <Layout />;
 }
 
 export default App;
