@@ -16,7 +16,7 @@ const toDosSlice = createSlice({
     toggleTodoisDone: (currentToDos, action: PayloadAction<number>) =>
       currentToDos.map((toDo) => ({
         ...toDo,
-        isHappy: toDo.id === action.payload ? !toDo.isDone : toDo.isDone,
+        isDone: toDo.id === action.payload ? !toDo.isDone : toDo.isDone,
       })),
   },
 });

@@ -12,7 +12,12 @@ const useApi = () => {
     const todosArray = (await response.json()) as ToDosStructure;
     dispatch(loadToDosActionCreator(todosArray));
   }, [dispatch]);
-  return { loadTodos };
+
+  const deleteToDo = useCallback(async (id: number) => {
+    await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
+  }, []);
+
+  return { loadTodos, deleteToDo };
 };
 
 export default useApi;
