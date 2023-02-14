@@ -7,12 +7,11 @@ interface RemoveButtonProps {
 }
 const RemoveButton = ({ id }: RemoveButtonProps): JSX.Element => {
   const dispatch = useAppDispatch();
-  const { loadTodos, deleteToDo } = useApi();
+  const { deleteToDo } = useApi();
 
-  const removeTodo = () => {
+  const removeTodo = async () => {
     dispatch(removeToDosActionCreator(id));
-    deleteToDo(id);
-    loadTodos();
+    await deleteToDo(id);
   };
 
   return (

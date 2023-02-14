@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { loadToDosActionCreator } from "../store/features/todo/todosSlice";
 import { useAppDispatch } from "../store/hooks";
-import { ToDosStructure } from "../types";
+import { ToDosStructure, ToDoStructure } from "../types";
 
 const useApi = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +17,20 @@ const useApi = () => {
     await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
   }, []);
 
-  return { loadTodos, deleteToDo };
+  const toggleTodo = useCallback(async (toDo: ToDoStructure) => {
+    await fetch(`${apiUrl}/${toDo.id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        ...toDo,
+        isDone: !toDo.isDone,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+  }, []);
+
+  return { loadTodos, deleteToDo, toggleTodo };
 };
 
 export default useApi;

@@ -16,7 +16,7 @@ const ToDoList = (): JSX.Element => {
     <ul className="todos">
       {toDos.map((todo) => (
         <li key={todo.id}>
-          <ToDoCard toDo={todo} />
+          <ToDoCard toDo={todo} toDoo={todo} />
         </li>
       ))}
     </ul>
