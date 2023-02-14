@@ -4,15 +4,22 @@ import Button from "../Button/genericButton";
 
 interface ToggleButonProps {
   id: number;
+  isDone: boolean;
 }
-const ToggleButton = ({ id }: ToggleButonProps): JSX.Element => {
+const ToggleButton = ({ id, isDone }: ToggleButonProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const toggleToDo = () => {
     dispatch(toggleToDosisDoneActionCreator(id));
   };
 
-  return <Button className="togglebutton" text={"done"} action={toggleToDo} />;
+  return (
+    <Button
+      className="togglebutton"
+      text={isDone ? "done" : "to do"}
+      action={toggleToDo}
+    />
+  );
 };
 
 export default ToggleButton;

@@ -1,7 +1,7 @@
-import useApi from "../hooks/useApi";
-import { removeToDosActionCreator } from "../store/features/todo/todosSlice";
-import { useAppDispatch } from "../store/hooks";
-import Button from "./Button/genericButton";
+import useApi from "../../hooks/useApi";
+import { removeToDosActionCreator } from "../../store/features/todo/todosSlice";
+import { useAppDispatch } from "../../store/hooks";
+import Button from "../Button/genericButton";
 interface RemoveButtonProps {
   id: number;
 }
@@ -9,7 +9,7 @@ const RemoveButton = ({ id }: RemoveButtonProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const { loadTodos } = useApi();
 
-  const removeTodo = async () => {
+  const removeTodo = () => {
     dispatch(removeToDosActionCreator(id));
     loadTodos();
   };
