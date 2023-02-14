@@ -1,7 +1,11 @@
+import ToDoList from "../Components/ToDoList/ToDoList";
+
 const Layout = (): JSX.Element => {
   return (
     <>
-      <div></div>
+      <div>
+        <ToDoList />
+      </div>
     </>
   );
 };
